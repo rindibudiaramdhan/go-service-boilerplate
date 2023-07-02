@@ -10,7 +10,7 @@ import (
 
 type PostsResource struct{}
 
-func (rs PostsResource) Routes() chi.Router {
+func (PostsResource) Routes() chi.Router {
 	r := chi.NewRouter()
 
 	r.Get("/", listPosts)   // GET /posts - Read a list of posts.
@@ -28,23 +28,23 @@ func (rs PostsResource) Routes() chi.Router {
 
 // `docgen` cannot link to source code of handlers that are attached to a struct.
 // Keep struct methods separate for testing, etc.
-func (rs PostsResource) List(w http.ResponseWriter, r *http.Request) {
+func (PostsResource) List(w http.ResponseWriter, r *http.Request) {
 	listPosts(w, r)
 }
 
-func (rs PostsResource) Create(w http.ResponseWriter, r *http.Request) {
+func (PostsResource) Create(w http.ResponseWriter, r *http.Request) {
 	createPost(w, r)
 }
 
-func (rs PostsResource) Get(w http.ResponseWriter, r *http.Request) {
+func (PostsResource) Get(w http.ResponseWriter, r *http.Request) {
 	getPost(w, r)
 }
 
-func (rs PostsResource) Update(w http.ResponseWriter, r *http.Request) {
+func (PostsResource) Update(w http.ResponseWriter, r *http.Request) {
 	updatePost(w, r)
 }
 
-func (rs PostsResource) Delete(w http.ResponseWriter, r *http.Request) {
+func (PostsResource) Delete(w http.ResponseWriter, r *http.Request) {
 	deletePost(w, r)
 }
 
