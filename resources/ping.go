@@ -8,7 +8,7 @@ import (
 
 type PingResources struct{}
 
-func (rs PingResources) Routes() chi.Router {
+func (PingResources) Routes() chi.Router {
 	r := chi.NewRouter()
 
 	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
